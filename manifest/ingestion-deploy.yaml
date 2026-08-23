@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axion-ingestion-deploy
+  namespace: axion
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingestion
+  template:
+    metadata:
+      labels:
+        app: ingestion
+    spec:
+      containers:
+        - name: ingestion-container
+          image: amitkkc01/axion-ingestion:1.0.0
+          ports:
+            - containerPort: 8000
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingestion-svc
+  namespace: axion
+spec:
+  selector:
+    app: ingestion
+  ports:
+    - port: 80
+      targetPort: 8000
+  type: ClusterIP
