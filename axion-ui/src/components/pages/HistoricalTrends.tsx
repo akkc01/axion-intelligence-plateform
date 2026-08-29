@@ -4,7 +4,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useSearchParams } from 'react-router-dom';
 import { ShareLinkButton } from '../ShareLinkButton';
 
-const API_BASE = 'http://localhost:9597';
+const API_BASE = 'http://telemetry.theakkc.space';
 
 // A set of distinct colors for the correlation lines
 const COLORS = [

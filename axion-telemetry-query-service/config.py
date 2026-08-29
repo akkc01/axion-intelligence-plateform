@@ -11,7 +11,7 @@ class Settings:
     # Format: postgresql://<user>:<password>@<host>:<port>/<database>
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL",
-        "postgresql://admin:admin123@postgres:5432/mydb",
+        "postgresql://jarvis:jarvis123@postgres-svc:5432/jarvis",
     )
     # Allows configuring a different port, e.g., if we run multiple services
     PORT: int = int(os.getenv("PORT", "8000"))
