@@ -58,3 +58,14 @@ ingress:
           service:
             name: axion-ui-svc
             port: 80
+
+    - host: axion.argocd.theakkc.space
+      paths:
+        - path: /
+          pathType: Prefix
+          service:
+            name: argocd-server
+            port: 80
+
+
+        
