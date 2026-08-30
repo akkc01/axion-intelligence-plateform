@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: devopsinsiders/axion-ui
+  DOCKER_IMAGE: amitkkc01/axion-ui
 
 jobs:
   build-and-push:
@@ -35,10 +35,12 @@ jobs:
             type=sha,prefix=
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Build and push Docker image
+
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./axion-ui
+          file: ./axion-ui/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

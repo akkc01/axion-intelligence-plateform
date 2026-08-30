@@ -51,7 +51,7 @@ ingress:
     appgw.ingress.kubernetes.io/backend-hostname: "pgad.theakkc.space"
 
   hosts:
-    - host: axion.theakkc.space
+    - host: dev.axion.theakkc.space
       paths:
         - path: /
           pathType: Prefix

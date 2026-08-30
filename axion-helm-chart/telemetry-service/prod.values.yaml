@@ -1,7 +1,7 @@
 namespace: akkc
 
 deployment:
-  replicas: 1
+  replicas: 2
 
   labels:
     app: telemetry
@@ -60,7 +60,7 @@ ingress:
   annotations:
     appgw.ingress.kubernetes.io/health-probe-path: "/dashboard/summary"
 
-  host: telemetry.theakkc.space
+  host: prod.telemetry.theakkc.space
 
   path: "/"
   pathType: Prefix

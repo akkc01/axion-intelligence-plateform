@@ -13,7 +13,7 @@ pgadmin:
   deployment:
     name: pgadmin-deploy
 
-  replicas: 1
+  replicas: 2
 
   labels:
     app: pgadmin
@@ -43,7 +43,7 @@ postgres:
   deployment:
     name: postgres-deploy
 
-  replicas: 1
+  replicas: 2
 
   labels:
     app: postgres
@@ -86,7 +86,7 @@ ingress:
 
   hosts:
 
-    - host: pgadmin.theakkc.space
+    - host: prod.pgadmin.theakkc.space
       paths:
         - path: /
           pathType: Prefix

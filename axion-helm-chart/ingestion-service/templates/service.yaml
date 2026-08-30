@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: {{ .Values.names.service }}
+  name: {{ include "ingestion.serviceName" . }}
   namespace: {{ .Values.namespace }}
 
 spec:

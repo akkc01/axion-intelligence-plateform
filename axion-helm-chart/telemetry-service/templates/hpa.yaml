@@ -4,7 +4,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 
 metadata:
-  name: {{ .Values.hpa.name }}
+  name: {{ include "telemetry.hpaName" . }}
   namespace: {{ .Values.namespace }}
 
 spec:

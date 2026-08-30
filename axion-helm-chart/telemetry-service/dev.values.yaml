@@ -60,7 +60,7 @@ ingress:
   annotations:
     appgw.ingress.kubernetes.io/health-probe-path: "/dashboard/summary"
 
-  host: telemetry.theakkc.space
+  host: dev.telemetry.theakkc.space
 
   path: "/"
   pathType: Prefix

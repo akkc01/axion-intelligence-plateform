@@ -2,7 +2,7 @@
 namespace: akkc
 
 # Deployment
-replicaCount: 1
+replicaCount: 2
 
 labels:
   app: simulation
@@ -18,4 +18,4 @@ container:
 
 
 api:
-  url: "http://ingest.theakkc.space/api/v1/telemetry/ingest"
+  url: "http://prod.ingest.theakkc.space/api/v1/telemetry/ingest"

@@ -18,4 +18,4 @@ container:
 
 
 api:
-  url: "http://ingest.theakkc.space/api/v1/telemetry/ingest"
+  url: "http://dev.ingest.theakkc.space/api/v1/telemetry/ingest"

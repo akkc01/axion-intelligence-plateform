@@ -4,7 +4,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: {{ include "telemetry.ingName" . }}
+  name: {{ include "axion.ingName" . }}
   namespace: {{ .Values.namespace }}
 
   annotations:
@@ -14,17 +14,19 @@ spec:
   ingressClassName: {{ .Values.ingress.ingressClassName }}
 
   rules:
-    - host: {{ .Values.ingress.host }}
-
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host }}
       http:
         paths:
-          - path: {{ .Values.ingress.path }}
-            pathType: {{ .Values.ingress.pathType }}
-
+          {{- range .paths }}
+          - path: {{ .path | quote }}
+            pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ .Values.service.name }}
+                name: {{ .service.name }}
                 port:
-                  number: {{ .Values.service.port }}
+                  number: {{ .service.port }}
+          {{- end }}
+    {{- end }}
 
 {{- end }}

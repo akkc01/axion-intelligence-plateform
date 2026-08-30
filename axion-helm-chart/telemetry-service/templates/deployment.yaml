@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: {{ .Values.deployment.name }}
+  name: {{ include "telemetry.deploymentName" . }}
   namespace: {{ .Values.namespace }}
 
 spec:

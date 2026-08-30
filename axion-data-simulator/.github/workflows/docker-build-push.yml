@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: devopsinsiders/axion-data-simulator
+  DOCKER_IMAGE: amitkkc01/axion-simulator
 
 jobs:
   build-and-push:
@@ -38,7 +38,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./axion-data-simulator
+          file: ./axion-data-simulator/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
