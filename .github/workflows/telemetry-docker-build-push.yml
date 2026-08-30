@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
-  
+
 permissions:
   contents: write
 
@@ -49,15 +49,25 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Checkout Helm repository
+        uses: actions/checkout@v4
+        with:
+          repository: akkc01/axion-helm-chart
+          token: ${{ secrets.AXION_HELM_REPO_TOKEN }}
+          path: helm-repo
+
       - name: Update image tag in Helm values
         run: |
           TAG="${GITHUB_SHA::7}"
 
-          sed -i "s/^  tag:.*/  tag: \"${TAG}\"/" axion-helm-chart/telemetry-service/dev.values.yaml
+          sed -i "s/^  tag:.*/  tag: \"${TAG}\"/" \
+            helm-repo/telemetry-service/dev.values.yaml
+
+          cd helm-repo
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add axion-helm-chart/telemetry-service/dev.values.yaml
+          git add telemetry-service/dev.values.yaml
           git commit -m "Update axion-ui image tag to ${TAG}"
           git push
