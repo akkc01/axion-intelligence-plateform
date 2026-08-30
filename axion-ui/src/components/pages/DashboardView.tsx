@@ -7,7 +7,7 @@ import { Throughput } from '../Throughput';
 import { DigitalTwin } from '../DigitalTwin';
 import { ThermalCamera } from '../ThermalCamera';
 
-const API_BASE = 'http://telemetry.theakkc.space';
+const API_BASE = 'http://dev.telemetry.theakkc.space';
 
 interface DashboardViewProps {
   devices: any[];
