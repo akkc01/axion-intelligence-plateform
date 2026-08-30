@@ -15,7 +15,7 @@ import { SystemSettings } from './components/pages/SystemSettings';
 import { DashboardView } from './components/pages/DashboardView';
 import { NotFound } from './components/pages/NotFound';
 
-const API_BASE = 'http://telemetry.theakkc.space';
+const API_BASE = 'http://dev.telemetry.theakkc.space';
 
 function App() {
   const location = useLocation();
