@@ -5,6 +5,9 @@ import { Sidebar } from './components/Sidebar';
 import { Login } from './components/Login';
 import { formatAppDate } from './utils/date';
 
+// for API-URL
+import { API_BASE } from './config';
+
 // Import pages
 import { FleetSummary } from './components/pages/FleetSummary';
 import { AssetHierarchy } from './components/pages/AssetHierarchy';
@@ -15,7 +18,7 @@ import { SystemSettings } from './components/pages/SystemSettings';
 import { DashboardView } from './components/pages/DashboardView';
 import { NotFound } from './components/pages/NotFound';
 
-const API_BASE = 'http://dev.telemetry.theakkc.space';
+//const API_BASE = 'http://dev.telemetry.theakkc.space';
 
 function App() {
   const location = useLocation();

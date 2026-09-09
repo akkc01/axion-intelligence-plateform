@@ -6,8 +6,9 @@ import { LiveTrend } from '../LiveTrend';
 import { Throughput } from '../Throughput';
 import { DigitalTwin } from '../DigitalTwin';
 import { ThermalCamera } from '../ThermalCamera';
+import { API_BASE } from '../../config';
 
-const API_BASE = 'http://dev.telemetry.theakkc.space';
+//const API_BASE = 'http://dev.telemetry.theakkc.space';
 
 interface DashboardViewProps {
   devices: any[];

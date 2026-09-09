@@ -3,8 +3,9 @@ import { Search, LineChart as LineChartIcon, Droplets, Wind, Settings } from 'lu
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import { useSearchParams } from 'react-router-dom';
 import { ShareLinkButton } from '../ShareLinkButton';
+import { API_BASE } from '../../config';
 
-const API_BASE = 'http://dev.telemetry.theakkc.space';
+//const API_BASE = 'http://dev.telemetry.theakkc.space';
 
 // A set of distinct colors for the correlation lines
 const COLORS = [
