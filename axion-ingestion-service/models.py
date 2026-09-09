@@ -14,7 +14,6 @@ class TelemetryMetrics(BaseModel):
     vibration: float = Field(..., description="Vibration reading (mm/s)")
     current: float = Field(..., description="Current draw (A)")
 
-
 class TelemetryPayload(BaseModel):
     """Incoming telemetry payload from a refinery device."""
     deviceId: str = Field(..., min_length=1, max_length=50, description="Unique device identifier")
