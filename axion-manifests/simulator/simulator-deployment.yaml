@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simulator-deployment
+  namespace: axion
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: simulator
+
+  template:
+    metadata:
+      labels:
+        app: simulator
+
+    spec:
+      containers:
+        - name: simulator
+          image: amitkkc01/simulator-arm64:5.0.1
+
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+
+          env:
+            - name: API_URL
+              valueFrom:
+                secretKeyRef:
+                  name: simulator-secret
+                  key: API_URL

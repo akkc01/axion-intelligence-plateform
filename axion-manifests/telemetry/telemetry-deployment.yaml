@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telemetry-deployment
+  namespace: axion
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: telemetry
+
+  template:
+    metadata:
+      labels:
+        app: telemetry
+
+    spec:
+      containers:
+        - name: telemetry
+          image: amitkkc01/telemetry-arm64:5.0.1
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 8000
+              protocol: TCP
+
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: DATABASE_URL

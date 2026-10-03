@@ -1,0 +1,30 @@
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: postgres-pvc
+#   namespace: axion
+
+# spec:
+#   storageClassName: azurefile-sc
+#   accessModes:
+#     - ReadWriteMany
+
+#   resources:
+#     requests:
+#       storage: 20Gi
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+  namespace: axion
+
+spec:
+  storageClassName: postgres-managed-csi
+  accessModes:
+    - ReadWriteOnce
+
+  resources:
+    requests:
+      storage: 20Gi

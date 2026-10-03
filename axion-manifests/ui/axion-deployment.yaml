@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axion-deployment
+  namespace: axion
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: axion
+
+  template:
+    metadata:
+      labels:
+        app: axion
+
+    spec:
+      containers:
+        - name: axion
+          image: amitkkc01/axion-ui-arm64:5.0.1
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 80
+              protocol: TCP
+
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+
+          env:
+            - name: API_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: telemetry-secret
+                  key: API_BASE

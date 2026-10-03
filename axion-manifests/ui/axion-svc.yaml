@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: axion-svc
+  namespace: axion
+  labels:
+    app: axion
+
+spec:
+  type: ClusterIP
+  selector:
+    app: axion
+    
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
