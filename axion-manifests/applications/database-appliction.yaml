@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-  name: axion-db
+  name: axion-db-dev
   namespace: argocd
 
 spec:

@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-  name: axion-telemetry
+  name: axion-telemetry-dev
   namespace: argocd
 
 spec:
