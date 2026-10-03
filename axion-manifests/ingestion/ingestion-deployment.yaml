@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ingestion-deployment
-  namespace: axion
 
 spec:
   replicas: 1

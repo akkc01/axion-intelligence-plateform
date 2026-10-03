@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: axion-simulator
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/akkc01/axion-intelligence-plateform.git
+    targetRevision: main
+    path: axion-manifests/simulator
+
+    # helm:
+    #   releaseName: dev
+    #   valueFiles:
+    #     - dev.values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: axion-dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
