@@ -1,25 +1,12 @@
 # apiVersion: storage.k8s.io/v1
 # kind: StorageClass
 # metadata:
-#   name: azurefile-sc
+#   name: postgres-managed-csi
 
-# provisioner: file.csi.azure.com
+# provisioner: disk.csi.azure.com
 # parameters:
-#   skuName: Standard_LRS
+#   skuName: Premium_LRS
 
 # reclaimPolicy: Retain
-# volumeBindingMode: Immediate
-
-
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: postgres-managed-csi
-
-provisioner: disk.csi.azure.com
-parameters:
-  skuName: Premium_LRS
-
-reclaimPolicy: Retain
-volumeBindingMode: WaitForFirstConsumer
-allowVolumeExpansion: true
+# volumeBindingMode: WaitForFirstConsumer
+# allowVolumeExpansion: true

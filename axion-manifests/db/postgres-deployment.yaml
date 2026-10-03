@@ -87,10 +87,14 @@ spec:
             - name: postgres-init-sql
               mountPath: /docker-entrypoint-initdb.d
 
-      volumes:
+      # volumes:
+      #   - name: postgres-data
+      #     persistentVolumeClaim:
+      #       claimName: postgres-pvc
+
+        # Temporary PostgreSQL storage
         - name: postgres-data
-          persistentVolumeClaim:
-            claimName: postgres-pvc
+          emptyDir: {}
 
         - name: postgres-init-sql
           configMap:

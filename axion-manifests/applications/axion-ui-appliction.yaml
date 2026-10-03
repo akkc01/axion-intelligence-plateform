@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
 
 spec:
-  project: default
+  project: axion
 
   source:
     repoURL: https://github.com/akkc01/axion-intelligence-plateform.git
