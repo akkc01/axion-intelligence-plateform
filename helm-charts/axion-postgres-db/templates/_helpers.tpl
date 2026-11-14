@@ -46,17 +46,17 @@ PostgreSQL ConfigMap name
 {{- end }}
 
 
-{{/*
-PostgreSQL StorageClass name
-*/}}
-{{- define "postgres.storageClassName" -}}
-{{ include "axion.name" . }}-{{ .Release.Name }}-{{ include "postgres.name" . }}-managed-csi
-{{- end }}
+# {{/*
+# PostgreSQL StorageClass name
+# */}}
+# {{- define "postgres.storageClassName" -}}
+# {{ include "axion.name" . }}-{{ .Release.Name }}-{{ include "postgres.name" . }}-managed-csi
+# {{- end }}
 
 
-{{/*
-PostgreSQL PVC name
-*/}}
-{{- define "postgres.pvcName" -}}
-{{ include "axion.name" . }}-{{ .Release.Name }}-{{ include "postgres.name" . }}-pvc
-{{- end }}
+# {{/*
+# PostgreSQL PVC name
+# */}}
+# {{- define "postgres.pvcName" -}}
+# {{ include "axion.name" . }}-{{ .Release.Name }}-{{ include "postgres.name" . }}-pvc
+# {{- end }}

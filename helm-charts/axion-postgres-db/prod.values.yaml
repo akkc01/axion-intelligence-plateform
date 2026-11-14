@@ -44,26 +44,26 @@ postgresInit:
       CREATE INDEX idx_telemetry_timestamp
       ON telemetry(timestamp DESC);
 
-# storage-class
-storageClass:
-  create: true
-  # name: postgres-managed-csi
-  provisioner: disk.csi.azure.com
-  parameters:
-    skuName: Premium_LRS
+# # storage-class
+# storageClass:
+#   create: true
+#   # name: postgres-managed-csi
+#   provisioner: disk.csi.azure.com
+#   parameters:
+#     skuName: Premium_LRS
 
-  reclaimPolicy: Retain
-  volumeBindingMode: WaitForFirstConsumer
-  allowVolumeExpansion: true
+#   reclaimPolicy: Retain
+#   volumeBindingMode: WaitForFirstConsumer
+#   allowVolumeExpansion: true
 
-# PVC---
-persistence:
-  enabled: true
-  # name: postgres-pvc
-  # storageClass: postgres-managed-csi
-  accessModes:
-    - ReadWriteOnce
-  size: 20Gi
+# # PVC---
+# persistence:
+#   enabled: true
+#   # name: postgres-pvc
+#   # storageClass: postgres-managed-csi
+#   accessModes:
+#     - ReadWriteOnce
+#   size: 20Gi
 
 
 # deployment--

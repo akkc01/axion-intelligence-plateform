@@ -7,7 +7,7 @@ database:
 
 
 service:
-  name: postgres-svc
+  name: dev-postgres-svc
   type: ClusterIP
   port: 5432
   targetPort: 5432

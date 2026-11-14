@@ -93,9 +93,13 @@ spec:
 
       volumes:
 
+        # - name: postgres-data
+        #   persistentVolumeClaim:
+        #     claimName: {{ include "postgres.pvcName" . }}
+
+        # removed persistent volume claim for local development, using emptyDir instead        
         - name: postgres-data
-          persistentVolumeClaim:
-            claimName: {{ include "postgres.pvcName" . }}
+          emptyDir: {}
 
         - name: postgres-init-sql
           configMap:
